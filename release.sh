@@ -6,6 +6,8 @@ setup_git() {
 }
 
 upload_files() {
+  git checkout ${TRAVIS_BRANCH}
+  git commit -am "Travis build: $TRAVIS_BUILD_NUMBER"
   git remote add origin-travis https://${GH_TOKEN}@github.com/brunabxs/travis-github-push.git > /dev/null 2>&1
   git push --quiet --set-upstream origin-travis ${TRAVIS_BRANCH}
 }
