@@ -14,14 +14,8 @@ jobs:
     - stage: release
       script:
         - chmod +x ./release.sh
-        - bash ./release.sh
-      branches:
-        only:
-          - master
+        - if [ "$TRAVIS_BRANCH" == "master" ]; then bash ./release.sh; fi;
     - stage: publish
       script:
         - chmod +x ./publish.sh
-        - bash ./publish.sh
-      branches:
-        only:
-          - /^v\d+\.\d+\.\d+$/
+        - if [ "$TRAVIS_TAG" ]; then bash ./publish.sh; fi;
