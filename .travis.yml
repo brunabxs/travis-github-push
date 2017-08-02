@@ -14,5 +14,6 @@ jobs:
         - if [ "$TRAVIS_BRANCH" == "master" ]; then bash ./release.sh; fi;
     - stage: publish
       script:
+        - npm install gulp -g
         - chmod +x ./publish.sh
         - if [ "$TRAVIS_TAG" ]; then bash ./publish.sh; fi;
