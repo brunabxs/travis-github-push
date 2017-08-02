@@ -1,5 +1,7 @@
 language: node_js
 node_js:
   - "node"
+before_install:
+  - chmod +x ./push.sh
 after_script:
   - ./push.sh
