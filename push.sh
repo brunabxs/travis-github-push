@@ -1,7 +1,7 @@
 #!/bin/sh
 
 create_file() {
-  echo "Hi, today is $(date)" >> "teste.html"
+  echo "Hi, to day is $(date)" >> "teste.html"
 }
 
 
