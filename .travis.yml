@@ -10,7 +10,8 @@ jobs:
     - stage: release
       script:
         - npm install gulp -g
-        - if [ "$TRAVIS_BRANCH" == "master" ]; then gulp release; bash ./release.sh; fi;
+        - chmod +x ./release.sh
+        - if [ "$TRAVIS_BRANCH" == "master" ]; then bash ./release.sh; fi;
     - stage: publish
       script:
         - chmod +x ./publish.sh

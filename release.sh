@@ -10,5 +10,6 @@ upload_files() {
   git push --quiet --set-upstream origin-travis ${TRAVIS_BRANCH}
 }
 
+gulp release
 setup_git
 upload_files
