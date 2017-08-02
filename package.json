@@ -1,6 +1,6 @@
 {
   "name": "travis-github-push",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Example",
   "devDependencies": {
     "event-stream": "^3.3.4",
