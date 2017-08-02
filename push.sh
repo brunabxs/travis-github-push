@@ -11,14 +11,12 @@ setup_git() {
 }
 
 commit_website_files() {
-  git checkout -b master
-  git add . *.html
-  git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
+  git commit -am "Travis build: $TRAVIS_BUILD_NUMBER"
 }
 
 upload_files() {
-  git remote add origin-pages https://${GH_TOKEN}@github.com/brunabxs/travis-github-push.git > /dev/null 2>&1
-  git push --quiet --set-upstream origin-pages gh-pages 
+  git remote add origin-travis https://${GH_TOKEN}@github.com/brunabxs/travis-github-push.git > /dev/null 2>&1
+  git push --quiet --set-upstream origin-travis ${TRAVIS_BRANCH}
 }
 
 create_file
