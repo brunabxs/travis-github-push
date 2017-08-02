@@ -5,16 +5,12 @@ jobs:
   include:
     - stage: build
       script:
-        - chmod +x ./build.sh
-        - bash ./build.sh
-    - stage: test
-      script:
-        - chmod +x ./test.sh
-        - bash ./test.sh
+        - npm install gulp -g
+        - gulp build
     - stage: release
       script:
-        - chmod +x ./release.sh
-        - if [ "$TRAVIS_BRANCH" == "master" ]; then bash ./release.sh; fi;
+        - npm install gulp -g
+        - if [ "$TRAVIS_BRANCH" == "master" ]; then gulp release; bash ./release.sh; fi;
     - stage: publish
       script:
         - chmod +x ./publish.sh

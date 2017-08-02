@@ -1,0 +1,5 @@
+{
+    "name": "travis-github-push",
+    "description": "<%- description %>",
+    "version": "<%- version %>"
+}
