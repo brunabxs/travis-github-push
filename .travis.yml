@@ -1,7 +1,27 @@
 language: node_js
 node_js:
   - "node"
-before_install:
-  - chmod +x ./push.sh
-after_script:
-  - ./push.sh
+jobs:
+  include:
+    - stage: build
+      script:
+        - chmod +x ./build.sh
+        - bash ./build.sh
+    - stage: test
+      script:
+        - chmod +x ./test.sh
+        - bash ./test.sh
+    - stage: release
+      script:
+        - chmod +x ./release.sh
+        - bash ./release.sh
+      branches:
+        only:
+          - master
+    - stage: publish
+      script:
+        - chmod +x ./publish.sh
+        - bash ./publish.sh
+      branches:
+        only:
+          - /^v\d+\.\d+\.\d+$/
