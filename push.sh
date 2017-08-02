@@ -15,6 +15,7 @@ commit_website_files() {
 }
 
 upload_files() {
+  git checkout -b ${TRAVIS_BRANCH}
   git remote add origin-travis https://${GH_TOKEN}@github.com/brunabxs/travis-github-push.git > /dev/null 2>&1
   git push --quiet --set-upstream origin-travis ${TRAVIS_BRANCH}
 }
