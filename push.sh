@@ -1,7 +1,7 @@
 #!/bin/sh
 
 create_file() {
-  echo "Hi,.  today is $(date)" >> "teste.html"
+  echo "Hi,." >> "README.md"
 }
 
 
