@@ -31,12 +31,7 @@ gulp.task('package', function (callback) {
 });
 
 gulp.task('release-ci', function (callback) {
-    if (process.env.CI && process.env.TRAVIS) {
-        console.log(process.env.TRAVIS_COMMIT_MESSAGE);
-        if (!process.env.TRAVIS_COMMIT_MESSAGE.startsWith('Release v')) {
-            runSequence('bump', 'package', 'changelog', 'checkout', 'commit', 'tag', 'push', callback);
-        }
-    }
+    runSequence('bump', 'package', 'changelog', 'checkout', 'commit', 'tag', 'push', callback);
 });
 
 gulp.task('release', function (callback) {
