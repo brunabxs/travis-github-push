@@ -9,14 +9,9 @@ module.exports = function () {
         if (error)
             throw error;
 
-        git.push('origin-travis', branch, function (error) {
+        git.push('origin-travis', branch, { args: '--tags' }, function (error) {
             if (error)
                 throw error;
-
-            return git.push('origin-travis', branch, { args: '--tags' }, function (error) {
-                if (error)
-                    throw error;
-            });
         });
     });
 
