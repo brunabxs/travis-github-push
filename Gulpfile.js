@@ -1,6 +1,7 @@
 var bump = require('./tasks/bump.js');
 var changelog = require('./tasks/changelog.js');
 var checkout = require('./tasks/checkout.js');
+var checkoutTag = require('./tasks/checkout-tag.js');
 var clean = require('./tasks/clean.js');
 var commit = require('./tasks/commit.js');
 var gulp = require('gulp');
@@ -14,6 +15,7 @@ var zip = require('./tasks/zip.js');
 gulp.task('bump', bump);
 gulp.task('changelog', changelog);
 gulp.task('checkout', checkout);
+gulp.task('checkout-tag', checkoutTag);
 gulp.task('clean', clean);
 gulp.task('commit', commit);
 gulp.task('lint', jshint);
@@ -21,6 +23,10 @@ gulp.task('push', push);
 gulp.task('tag', tag);
 gulp.task('template', template);
 gulp.task('zip', zip);
+
+gulp.task('publish', function () {
+    console.log('Publish!!!');
+});
 
 gulp.task('build', function (callback) {
     runSequence('clean', 'lint', 'template', callback);
@@ -36,4 +42,8 @@ gulp.task('release-ci', function (callback) {
 
 gulp.task('release', function (callback) {
     runSequence('bump', 'package', 'changelog', 'commit', 'tag', callback);
+});
+
+gulp.task('publish-ci', function (callback) {
+    runSequence('checkout-tag', 'package', 'publish', callback);
 });

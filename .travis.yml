@@ -10,5 +10,4 @@ jobs:
     - stage: publish
       script:
         - npm install gulp -g
-        - chmod +x ./publish.sh
-        - if [[ $TRAVIS_TAG ]]; then bash ./publish.sh; fi;
+        - if [[ $TRAVIS_TAG ]]; then gulp publish-ci; fi;
