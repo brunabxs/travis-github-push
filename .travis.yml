@@ -3,10 +3,6 @@ node_js:
   - "node"
 jobs:
   include:
-    - stage: build
-      script:
-        - npm install gulp -g
-        - gulp build
     - stage: release
       script:
         - npm install gulp -g
