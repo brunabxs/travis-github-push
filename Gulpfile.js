@@ -31,9 +31,5 @@ gulp.task('package', function (callback) {
 });
 
 gulp.task('release', function (callback) {
-    runSequence('bump', 'package', 'changelog', 'commit', 'tag', callback);
-});
-
-gulp.task('release-push', function (callback) {
-    runSequence('checkout', 'release', 'push', callback);
+    runSequence('bump', 'package', 'changelog', 'checkout', 'commit', 'tag', 'push', callback);
 });
